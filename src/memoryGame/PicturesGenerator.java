@@ -22,7 +22,9 @@ public class PicturesGenerator {
     }
     private void addPictures(List<Picture> cardPictures, int pairs){
         int count = 0;
-        for (Picture picture : allPictures) {
+        List<Picture> randomPictures = new ArrayList<>(allPictures);
+        Collections.shuffle(randomPictures);
+        for (Picture picture : randomPictures) {
             cardPictures.add(picture);
             cardPictures.add(picture);
             count++;
