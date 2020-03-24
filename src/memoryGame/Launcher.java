@@ -11,7 +11,6 @@ public class Launcher {
                 Game game = new Game();
             }
         });
-        TypesGenerator typesGenerator = new TypesGenerator();
-        System.out.println(typesGenerator.generateRandomTypes());
+
     }
 }

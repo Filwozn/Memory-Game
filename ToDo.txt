@@ -1,0 +1,4 @@
+Na później:
+Wyświetla się a mało kart.
+Teraz:
+Wczytanie obrazu do pamięci
