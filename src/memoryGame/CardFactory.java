@@ -14,8 +14,8 @@ public class CardFactory {
 
     public List<Card> buildFullBoard() {
         List<Card> cards = new ArrayList<>();
-        for (int i = 0; i < Game.ROWS; i++) {
-            cards.addAll(buildRandomRow(Game.COLUMNS, i));
+        for (int i = 0; i < GameFrame.ROWS; i++) {
+            cards.addAll(buildRandomRow(GameFrame.COLUMNS, i));
         }
         return cards;
     }

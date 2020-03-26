@@ -11,7 +11,7 @@ public class PicturesGenerator {
     }
 
     public List<Picture> generateRandomPictures(){
-        int amount = Game.ROWS*Game.COLUMNS;
+        int amount = GameFrame.ROWS* GameFrame.COLUMNS;
         List<Picture> cardPictures = new ArrayList<>();
         if(isNotValidCardsAmount(amount)){
             return cardPictures;

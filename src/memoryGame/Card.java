@@ -1,10 +1,6 @@
 package memoryGame;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class Card {
 
@@ -29,7 +25,7 @@ public class Card {
 //    }
     //Rysowanie obrazu
     public void paint(Graphics g) {
-        g.drawImage(picture.getImage(), x * CARD_WIDTH + Board.OFFSET + Board.OFFSET_BETWEEN * x,
-                y * CARD_HEIGHT + Board.OFFSET + Board.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
+        g.drawImage(picture.getImage(), x * CARD_WIDTH + Game.OFFSET + Game.OFFSET_BETWEEN * x,
+                y * CARD_HEIGHT + Game.OFFSET + Game.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
     }
 }

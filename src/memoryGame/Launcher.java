@@ -8,7 +8,7 @@ public class Launcher {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Game game = new Game();
+                GameFrame gameFrame = new GameFrame();
             }
         });
 
