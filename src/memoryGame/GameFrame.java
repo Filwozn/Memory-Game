@@ -4,15 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameFrame extends JFrame {
-    public static final int ROWS = 5; //max 5
-    public static final int COLUMNS = 12;
+    public static final int ROWS = 2; //max 5
+    public static final int COLUMNS = 2;
     public static final int MENU_BAR_SIZE = 30;
-    public static int width = 2 * GameEngine.OFFSET + COLUMNS * Card.CARD_WIDTH + COLUMNS * GameEngine.OFFSET_BETWEEN;
-    public static int height = 2 * GameEngine.OFFSET + ROWS * Card.CARD_HEIGHT + ROWS * GameEngine.OFFSET_BETWEEN + MENU_BAR_SIZE;
+    public static int FRAME_WIDTH = 2 * GameEngine.OFFSET + COLUMNS * Card.CARD_WIDTH + COLUMNS * GameEngine.OFFSET_BETWEEN;
+    public static int FRAME_HEIGHT = 2 * GameEngine.OFFSET + ROWS * Card.CARD_HEIGHT + ROWS * GameEngine.OFFSET_BETWEEN + MENU_BAR_SIZE;
     private GameEngine gameEngine = new GameEngine();
 
     public GameFrame() throws HeadlessException {
-        setSize(width, height);
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setTitle("Memory");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);

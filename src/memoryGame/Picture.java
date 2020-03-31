@@ -39,4 +39,6 @@ public class Picture {
     public Image getImage() {
         return image;
     }
+
+
 }

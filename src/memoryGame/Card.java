@@ -1,21 +1,25 @@
 package memoryGame;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Card {
 
     public static final int CARD_WIDTH = 100;
     public static final int CARD_HEIGHT = 162;
-
-
-    private Picture picture;
+    private BufferedImage reverse;
+    private BufferedImage matchedPicture;
+    private Picture hiddenPicture;
     private int x;
     private int y;
+    private CardState state = CardState.REVERSE;
 
-    public Card(Picture picture, int x, int y) {
-        this.picture = picture;
+    public Card(Picture hiddenPicture, int x, int y) {
+        this.hiddenPicture = hiddenPicture;
         this.x = x;
         this.y = y;
+        reverse = SingletonPictures.getRevers();
+        matchedPicture = SingletonPictures.getMatchedPicture();
     }
 
     public int getX() {
@@ -25,10 +29,14 @@ public class Card {
     @Override
     public String toString() {
         return "Card{" +
-                "picture=" + picture +
+                "picture=" + hiddenPicture +
                 ", x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    public boolean hasSamePicture(Card secondCard) {
+        return hiddenPicture.equals(secondCard.hiddenPicture);
     }
 
     public int getY() {
@@ -36,7 +44,24 @@ public class Card {
     }
 
     public void paint(Graphics g) {
-        g.drawImage(picture.getImage(), x * CARD_WIDTH + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * x,
+        Image actualImage;
+        switch (state) {
+            case FACE_UP:
+                actualImage = hiddenPicture.getImage();
+                break;
+            default:
+            case REVERSE:
+                actualImage = reverse;
+                break;
+            case MATCHED:
+                actualImage = matchedPicture;
+                break;
+        }
+        g.drawImage(actualImage, x * CARD_WIDTH + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * x,
                 y * CARD_HEIGHT + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
+    }
+
+    public void setState(CardState state) {
+        this.state = state;
     }
 }

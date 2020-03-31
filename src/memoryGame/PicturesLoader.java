@@ -30,7 +30,7 @@ public class PicturesLoader {
         return new Picture(author,title,image);
     }
 
-    private BufferedImage getImage(File file) {
+    public static BufferedImage getImage(File file) {
         try {
             return ImageIO.read(file);
         } catch (IOException e) {
