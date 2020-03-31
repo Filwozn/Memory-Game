@@ -5,19 +5,21 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game extends JPanel {
+public class GameEngine extends JPanel {
     public static final int OFFSET = 15;
     public static final int OFFSET_BETWEEN = 15;
     private List<Card> cards = new ArrayList<>();
-    private CardFactory factory = new CardFactory();
-    private MouseManager mouseManager = new MouseManager(this);
+    private GameLogic logic;
 
-    public Game() {
+    public GameEngine() {
+        CardFactory factory = new CardFactory();
         cards.addAll(factory.buildFullBoard());
+        logic = new GameLogic(cards);
+        MouseManager mouseManager = new MouseManager(this);
         addMouseListener(mouseManager);
     }
     public void click (int x, int y){
-        System.out.println("x = " + x + " y = " + y);
+            logic.executeSelection(x,y);
     }
 
     @Override

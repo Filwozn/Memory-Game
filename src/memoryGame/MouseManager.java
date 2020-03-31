@@ -7,10 +7,10 @@ import static memoryGame.Card.CARD_HEIGHT;
 import static memoryGame.Card.CARD_WIDTH;
 
 public class MouseManager implements MouseListener {
-    private Game game;
+    private GameEngine gameEngine;
 
-    public MouseManager(Game game) {
-        this.game = game;
+    public MouseManager(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
     }
 
     @Override
@@ -18,8 +18,8 @@ public class MouseManager implements MouseListener {
         int logicX = -1;
         int logicY = -1;
         for (int col = 0; col <  GameFrame.COLUMNS; col++) {
-            int leftBorder = Game.OFFSET_BETWEEN * col + col* CARD_WIDTH + Game.OFFSET_BETWEEN;
-            int rightBorder =  Game.OFFSET_BETWEEN * col + col* CARD_WIDTH + Game.OFFSET_BETWEEN + CARD_WIDTH;
+            int leftBorder = GameEngine.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameEngine.OFFSET_BETWEEN;
+            int rightBorder =  GameEngine.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameEngine.OFFSET_BETWEEN + CARD_WIDTH;
             if (e.getX() >= leftBorder && e.getX() <= rightBorder) {
                 logicX = col;
                 break;
@@ -30,8 +30,8 @@ public class MouseManager implements MouseListener {
             return;
         }
         for (int row = 0; row <  GameFrame.ROWS; row++) {
-            int topBorder = Game.OFFSET_BETWEEN * row + row* CARD_HEIGHT + Game.OFFSET_BETWEEN;
-            int bottomBorder =  Game.OFFSET_BETWEEN * row + row* CARD_HEIGHT + Game.OFFSET_BETWEEN + CARD_HEIGHT;
+            int topBorder = GameEngine.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameEngine.OFFSET_BETWEEN;
+            int bottomBorder =  GameEngine.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameEngine.OFFSET_BETWEEN + CARD_HEIGHT;
             if (e.getY() >= topBorder && e.getY() <= bottomBorder) {
                 logicY = row;
                 break;
@@ -44,7 +44,7 @@ public class MouseManager implements MouseListener {
 
 
 
-        game.click(logicX,logicY);    // NullPointerException występuje, gdy wywołamy metodę na zmiennej, w której jest nulll.
+        gameEngine.click(logicX,logicY);    // NullPointerException występuje, gdy wywołamy metodę na zmiennej, w której jest nulll.
     }
 
     @Override

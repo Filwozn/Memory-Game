@@ -18,14 +18,25 @@ public class Card {
         this.y = y;
     }
 
-    // Stare dzialanie rysowania karty
-//    public void paint(Graphics g){
-//        g.drawRect(x*CARD_WIDTH+Board.OFFSET+Board.OFFSET_BETWEEN*x,
-//                y*CARD_HEIGHT+Board.OFFSET+Board.OFFSET_BETWEEN*y,CARD_WIDTH,CARD_HEIGHT);
-//    }
-    //Rysowanie obrazu
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "picture=" + picture +
+                ", x=" + x +
+                ", y=" + y +
+                '}';
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public void paint(Graphics g) {
-        g.drawImage(picture.getImage(), x * CARD_WIDTH + Game.OFFSET + Game.OFFSET_BETWEEN * x,
-                y * CARD_HEIGHT + Game.OFFSET + Game.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
+        g.drawImage(picture.getImage(), x * CARD_WIDTH + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * x,
+                y * CARD_HEIGHT + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
     }
 }
