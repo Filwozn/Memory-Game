@@ -1,5 +1,6 @@
 Menu główne, wybór poziomu trudności, dodawanie obrazu z poziomu menu
 Quiz z nazwami obrazów i autorem,
 Wyświetlanie Autora i nawy obrazu,
+Opcja gry wieloosobowej,
 Muzyczka opcjonalnie,
 Reklama google.
