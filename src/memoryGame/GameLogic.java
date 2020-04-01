@@ -15,36 +15,48 @@ public class GameLogic {
         this.cards = cards;
     }
 
-
-
-
     //zlecam prace na osobnym watku, którego będę zatrzywał na 1 sekundę  aby user mogl zobaczyć kartę
     //gdybym robił to na głównym wątku zatrzymałbym całą aplikacje - równiez uaktualnie wygladu kart
     public void executeSelection(int x, int y) {
-       runOnOtherThreat(x,y);
+        runOnOtherThreat(x, y);
     }
 
     public void runOnOtherThreat(int x, int y) {
-        SwingWorker<Void,Void> worker = new SwingWorker<>() {
+        SwingWorker<Void, Void> worker = new SwingWorker<>() {
             @Override
             protected Void doInBackground() throws Exception {
-                addSelectedCard(x,y);
-                compareSelectedCards();
+                onSelection(x, y);
                 return null;
             }
         };
         worker.execute();
     }
 
-    public void addSelectedCard(int x, int y) {
+    private void onSelection(int x, int y) {
+        Card card = findCardByCords(x, y);
+        if (canBeSelected(card)) {
+            addSelectedCard(card);
+            compareSelectedCards();
+        }
+    }
+
+    public Card findCardByCords(int x, int y) {
         for (Card card : cards) {
             if (card.getX() == x && card.getY() == y) {
-                selectedCards.add(card);
-                changeCardState(card,CardState.FACE_UP);
-                return;
+                return card;
             }
         }
+        throw new IllegalStateException("Nie znaleziono karty");
+    }
 
+
+    public void addSelectedCard(Card card) {
+        selectedCards.add(card);
+        changeCardState(card, CardState.FACE_UP);
+    }
+
+    public boolean canBeSelected(Card card) {
+        return card.getState() == CardState.REVERSE && selectedCards.size() < 2;
     }
 
     public void compareSelectedCards() {
@@ -54,11 +66,11 @@ public class GameLogic {
         cooldown();
         if (selectedCards.get(0).hasSamePicture(selectedCards.get(1))) {
             for (Card selectedCard : selectedCards) {
-               changeCardState(selectedCard,CardState.MATCHED);
+                changeCardState(selectedCard, CardState.MATCHED);
             }
         } else {
             for (Card selectedCard : selectedCards) {
-                changeCardState(selectedCard,CardState.REVERSE);
+                changeCardState(selectedCard, CardState.REVERSE);
             }
         }
         selectedCards.clear();

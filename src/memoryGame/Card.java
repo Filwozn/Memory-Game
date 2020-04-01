@@ -43,6 +43,10 @@ public class Card {
         return y;
     }
 
+    public CardState getState() {
+        return state;
+    }
+
     public void paint(Graphics g) {
         Image actualImage;
         switch (state) {
@@ -57,6 +61,7 @@ public class Card {
                 actualImage = matchedPicture;
                 break;
         }
+
         g.drawImage(actualImage, x * CARD_WIDTH + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * x,
                 y * CARD_HEIGHT + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
     }
