@@ -1,4 +1,5 @@
-Na później:
-Wyświetla się a mało kart.
-Teraz:
-Wczytanie obrazu do pamięci
+Menu główne, wybór poziomu trudności, dodawanie obrazu z poziomu menu
+Quiz z nazwami obrazów i autorem,
+Wyświetlanie Autora i nawy obrazu,
+Muzyczka opcjonalnie,
+Reklama google.
