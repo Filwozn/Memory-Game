@@ -3,4 +3,5 @@ Quiz z nazwami obrazów i autorem,
 Wyświetlanie Autora i nawy obrazu,
 Opcja gry wieloosobowej,
 Muzyczka opcjonalnie,
+Pożegnanie,
 Reklama google.

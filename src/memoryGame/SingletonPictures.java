@@ -3,6 +3,7 @@ package memoryGame;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+//SINGLETON PATTERN
 public class SingletonPictures {
     private static BufferedImage reverse;
     private static BufferedImage matchedPicture;
