@@ -13,8 +13,14 @@ public class DifficultPickerView extends View{
     public static final int HEIGHT = 600;
     public DifficultPickerView(String title) throws HeadlessException {
         super(title, WIDTH, HEIGHT);
+        setupComponents();
+        setupFrame();
+        setVisible(true);
     }
 
+    public void setupFrame() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
     public void addEasyButtonAction(ActionListener actionListener){
         easy.addActionListener(actionListener);
     }
@@ -26,5 +32,25 @@ public class DifficultPickerView extends View{
     }
     public void addBackButtonAction(ActionListener actionListener){
         back.addActionListener(actionListener);
+    }
+
+    public void setupComponents(){
+        easy = new JButton("easy");
+        easy.setAlignmentX(Component.CENTER_ALIGNMENT);
+        medium = new JButton(" Medium");
+        medium.setAlignmentX(Component.CENTER_ALIGNMENT);
+        hard = new JButton("Hard");
+        hard.setAlignmentX(Component.CENTER_ALIGNMENT);
+        back = new JButton("back");
+        back.setAlignmentX(Component.CENTER_ALIGNMENT);
+        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
+        myPanel.add(easy);
+        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
+        myPanel.add(medium);
+        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
+        myPanel.add(hard);
+        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
+        myPanel.add(back);
+        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
     }
 }

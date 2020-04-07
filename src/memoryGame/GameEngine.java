@@ -26,7 +26,7 @@ public class GameEngine extends JPanel implements CardObserver{
 
     @Override
     protected void paintComponent(Graphics g) {
-        g.clearRect(0,0, GameFrame.FRAME_WIDTH, GameFrame.FRAME_HEIGHT);
+        g.clearRect(0,0, GameView.FRAME_WIDTH, GameView.FRAME_HEIGHT);
         for (Card card : cards) {
             card.paint(g);
         }

@@ -1,6 +1,8 @@
 package view;
 
+import controller.DifficultPickerController;
 import controller.MenuViewController;
+import memoryGame.GameView;
 
 public class ViewFactory {
     public void buildView(ViewType viewType){
@@ -12,11 +14,14 @@ public class ViewFactory {
                 MenuViewController menuViewController = new MenuViewController(this,menuView);
                 return;
             case GAME:
-                break;
+                GameView gameView = new GameView("Memory");
+                return;
             case HIGH_SCORES:
                 break;
             case DIFFICULT_PICKER:
-                break;
+                DifficultPickerView difficultPickerView = new DifficultPickerView("Difficult Picker");
+                DifficultPickerController difficultPickerController = new DifficultPickerController(this,difficultPickerView);
+                return;
         }
     }
 }

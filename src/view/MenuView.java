@@ -8,7 +8,6 @@ public class MenuView extends View {
     private JButton start;
     private JButton highScores;
     private JButton exit;
-    private static final int MARGIN = 10;
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
 
@@ -16,6 +15,7 @@ public class MenuView extends View {
         super(title, WIDTH, HEIGHT);
         setupFrame();
         setupComponents();
+        setVisible(true);
     }
 
     public void setupFrame() {

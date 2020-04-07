@@ -1,4 +1,3 @@
-import memoryGame.GameFrame;
 import view.ViewFactory;
 import view.ViewType;
 

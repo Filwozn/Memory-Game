@@ -17,7 +17,7 @@ public class MouseManager implements MouseListener {
     public void mousePressed(MouseEvent e) {
         int logicX = -1;
         int logicY = -1;
-        for (int col = 0; col <  GameFrame.COLUMNS; col++) {
+        for (int col = 0; col <  GameView.COLUMNS; col++) {
             int leftBorder = GameEngine.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameEngine.OFFSET_BETWEEN;
             int rightBorder =  GameEngine.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameEngine.OFFSET_BETWEEN + CARD_WIDTH;
             if (e.getX() >= leftBorder && e.getX() <= rightBorder) {
@@ -29,7 +29,7 @@ public class MouseManager implements MouseListener {
             System.out.println("Margines!");
             return;
         }
-        for (int row = 0; row <  GameFrame.ROWS; row++) {
+        for (int row = 0; row <  GameView.ROWS; row++) {
             int topBorder = GameEngine.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameEngine.OFFSET_BETWEEN;
             int bottomBorder =  GameEngine.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameEngine.OFFSET_BETWEEN + CARD_HEIGHT;
             if (e.getY() >= topBorder && e.getY() <= bottomBorder) {

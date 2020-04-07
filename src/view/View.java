@@ -10,6 +10,7 @@ import java.io.File;
 //MVC PATTERN
 public abstract class View extends JFrame {
     protected MyPanel myPanel;
+    public static final int MARGIN = 10;
     private int width;
     private int height;
     public View(String title, int width, int height) throws HeadlessException {
@@ -21,7 +22,6 @@ public abstract class View extends JFrame {
     }
     public void setupBaseFrame() {
         setSize(width,height);
-        setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
         // pack();
@@ -34,7 +34,7 @@ public abstract class View extends JFrame {
     public class MyPanel extends JPanel {
         private BufferedImage background;
         public MyPanel() {
-            background = PicturesLoader.getImage(new File("resources/reverse.jpg"));
+            background = PicturesLoader.getImage(new File("resources/Main_Menu.jpg"));
             setupComponent();
         }
 

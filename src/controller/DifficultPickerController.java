@@ -1,7 +1,9 @@
 package controller;
 
+import memoryGame.GameView;
 import view.DifficultPickerView;
 import view.ViewFactory;
+import view.ViewType;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,8 +44,8 @@ public class DifficultPickerController extends Controller {
         });
     }
     public void easyAction(){
-        System.out.println("EAsy");
-
+        difficultPickerView.dispose();
+        viewFactory.buildView(ViewType.GAME);
     }
     public void mediumAction(){
         System.out.println("medium");
@@ -52,6 +54,8 @@ public class DifficultPickerController extends Controller {
         System.out.println("Hard");
     }
     public void backAction(){
-        System.out.println("Cofnij");
+        viewFactory.buildView(ViewType.MENU);
+        difficultPickerView.dispose();
     }
+
 }

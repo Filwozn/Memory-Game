@@ -2,6 +2,7 @@ package controller;
 
 import view.MenuView;
 import view.ViewFactory;
+import view.ViewType;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,7 +35,8 @@ public class MenuViewController extends Controller{
         });
     }
     public void startAction(){
-
+        viewFactory.buildView(ViewType.DIFFICULT_PICKER);
+        menuView.dispose();
     }
     public void highScoresAction(){
         System.out.println("HighScores");

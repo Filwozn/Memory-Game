@@ -1,9 +1,11 @@
 package memoryGame;
 
+import view.View;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class GameFrame extends JFrame {
+public class GameView extends View {
     public static final int ROWS = 2; //max 5
     public static final int COLUMNS = 2;
     public static final int MENU_BAR_SIZE = 30;
@@ -11,7 +13,16 @@ public class GameFrame extends JFrame {
     public static int FRAME_HEIGHT = 2 * GameEngine.OFFSET + ROWS * Card.CARD_HEIGHT + ROWS * GameEngine.OFFSET_BETWEEN + MENU_BAR_SIZE;
     private GameEngine gameEngine = new GameEngine();
 
-    public GameFrame() throws HeadlessException {
+    public GameView(String title) throws HeadlessException {
+        super(title, FRAME_WIDTH, FRAME_HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        add(gameEngine);
+        setVisible(true);
+    }
+
+/*    public GameFrame() throws HeadlessException {
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setTitle("Memory");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -19,7 +30,7 @@ public class GameFrame extends JFrame {
         setResizable(false);
         add(gameEngine);
         setVisible(true);
-    }
+    }*/
 }
 
 //rozmiar dostosowany do ilości kart
