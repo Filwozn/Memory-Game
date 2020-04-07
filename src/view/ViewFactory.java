@@ -2,6 +2,7 @@ package view;
 
 import controller.DifficultPickerController;
 import controller.MenuViewController;
+import memoryGame.DifficultLevel;
 import memoryGame.GameView;
 
 public class ViewFactory {
@@ -14,8 +15,7 @@ public class ViewFactory {
                 MenuViewController menuViewController = new MenuViewController(this,menuView);
                 return;
             case GAME:
-                GameView gameView = new GameView("Memory");
-                return;
+               throw new UnsupportedOperationException("USE BUILD GAME VIEW METHOD");
             case HIGH_SCORES:
                 break;
             case DIFFICULT_PICKER:
@@ -23,5 +23,9 @@ public class ViewFactory {
                 DifficultPickerController difficultPickerController = new DifficultPickerController(this,difficultPickerView);
                 return;
         }
+    }
+
+    public void buildGameView(DifficultLevel level) {
+        GameView gameView = new GameView("Memory", level);
     }
 }

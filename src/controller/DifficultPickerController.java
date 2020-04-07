@@ -1,5 +1,6 @@
 package controller;
 
+import memoryGame.DifficultLevel;
 import memoryGame.GameView;
 import view.DifficultPickerView;
 import view.ViewFactory;
@@ -45,13 +46,15 @@ public class DifficultPickerController extends Controller {
     }
     public void easyAction(){
         difficultPickerView.dispose();
-        viewFactory.buildView(ViewType.GAME);
+        viewFactory.buildGameView(DifficultLevel.EASY);
     }
     public void mediumAction(){
-        System.out.println("medium");
+             difficultPickerView.dispose();
+        viewFactory.buildGameView(DifficultLevel.MEDIUM);
     }
     public void hardAction(){
-        System.out.println("Hard");
+        difficultPickerView.dispose();
+        viewFactory.buildGameView(DifficultLevel.HARD);
     }
     public void backAction(){
         viewFactory.buildView(ViewType.MENU);
