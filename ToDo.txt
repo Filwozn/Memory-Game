@@ -1,8 +1,8 @@
-dodawanie obrazu z poziomu menu
 Quiz z nazwami obrazów i autorem,
 Wyświetlanie Autora i nawy obrazu,
 Opcja gry wieloosobowej,
 Muzyczka opcjonalnie,
+dodawanie obrazu z poziomu menu(opcjonalnie)
 Pożegnanie,
 Reklama google.
 

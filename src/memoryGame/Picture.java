@@ -36,7 +36,7 @@ public class Picture {
                 ", title='" + title + '\'';
     }
 
-    public Image getImage() {
+    public BufferedImage getImage() {
         return image;
     }
 

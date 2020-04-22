@@ -1,5 +1,7 @@
 package memoryGame;
 
+import controller.GameController;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -47,6 +49,10 @@ public class Card {
         return state;
     }
 
+    public Picture getHiddenPicture() {
+        return hiddenPicture;
+    }
+
     public void paint(Graphics g) {
         Image actualImage;
         switch (state) {
@@ -62,8 +68,9 @@ public class Card {
                 break;
         }
 
-        g.drawImage(actualImage, x * CARD_WIDTH + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * x,
-                y * CARD_HEIGHT + GameEngine.OFFSET + GameEngine.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
+
+        g.drawImage(actualImage, x * CARD_WIDTH + GameController.OFFSET + GameController.OFFSET_BETWEEN * x,
+                y * CARD_HEIGHT + GameController.OFFSET + GameController.OFFSET_BETWEEN * y, CARD_WIDTH, CARD_HEIGHT, null);
     }
 
     public void setState(CardState state) {

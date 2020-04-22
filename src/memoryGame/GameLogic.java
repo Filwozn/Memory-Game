@@ -67,14 +67,25 @@ public class GameLogic {
         cooldown();
         if (selectedCards.get(0).hasSamePicture(selectedCards.get(1))) {
             for (Card selectedCard : selectedCards) {
-                changeCardState(selectedCard, CardState.MATCHED);
+                correctMatch(selectedCard);
             }
+            observer.triggerQuiz(selectedCards.get(0).getHiddenPicture());
         } else {
             for (Card selectedCard : selectedCards) {
-                changeCardState(selectedCard, CardState.REVERSE);
+                incorrectMatch(selectedCard);
             }
         }
         selectedCards.clear();
+    }
+
+    //start quizu
+    private void correctMatch(Card selectedCard) {
+        changeCardState(selectedCard, CardState.MATCHED);
+
+    }
+
+    private void incorrectMatch(Card selectedCard) {
+        changeCardState(selectedCard, CardState.REVERSE);
     }
 
     private void changeCardState(Card card, CardState state) {
@@ -90,10 +101,11 @@ public class GameLogic {
         }
     }
 
-
     public void setObserver(CardObserver observer) {
         this.observer = observer;
     }
 }
 
 
+//todo - wyciagniete metody match - najlepiej przez engine zatriggerować pojawie się quizu,
+// przekazać wybrana karte i jakoś liste innych obrazków

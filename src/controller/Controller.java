@@ -1,11 +1,11 @@
 package controller;
 
-import view.ViewFactory;
+import view.AppFactory;
 
 public abstract class Controller {
-    protected ViewFactory viewFactory;
+    protected AppFactory appFactory;
 
-    public Controller(ViewFactory viewFactory) {
-        this.viewFactory = viewFactory;
+    public Controller(AppFactory appFactory) {
+        this.appFactory = appFactory;
     }
 }

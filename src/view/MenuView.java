@@ -47,4 +47,8 @@ public void addExitButtonAction(ActionListener actionListener){
         exit.addActionListener(actionListener);
 }
 
+    @Override
+    protected ViewGraphicPanel buildPanel() {
+        return new ViewGraphicPanelStandard();
+    }
 }

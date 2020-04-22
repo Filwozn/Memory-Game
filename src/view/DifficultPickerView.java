@@ -53,4 +53,9 @@ public class DifficultPickerView extends View{
         myPanel.add(back);
         myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
     }
+
+    @Override
+    protected ViewGraphicPanel buildPanel() {
+        return new ViewGraphicPanelStandard();
+    }
 }

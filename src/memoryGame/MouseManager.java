@@ -1,5 +1,8 @@
 package memoryGame;
 
+import controller.GameController;
+import view.GameView;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -7,10 +10,10 @@ import static memoryGame.Card.CARD_HEIGHT;
 import static memoryGame.Card.CARD_WIDTH;
 
 public class MouseManager implements MouseListener {
-    private GameEngine gameEngine;
+    private GameController gameController;
 
-    public MouseManager(GameEngine gameEngine) {
-        this.gameEngine = gameEngine;
+    public MouseManager(GameController gameController) {
+        this.gameController = gameController;
     }
 
     @Override
@@ -18,8 +21,8 @@ public class MouseManager implements MouseListener {
         int logicX = -1;
         int logicY = -1;
         for (int col = 0; col <  GameView.COLUMNS; col++) {
-            int leftBorder = GameEngine.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameEngine.OFFSET_BETWEEN;
-            int rightBorder =  GameEngine.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameEngine.OFFSET_BETWEEN + CARD_WIDTH;
+            int leftBorder = GameController.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameController.OFFSET_BETWEEN;
+            int rightBorder =  GameController.OFFSET_BETWEEN * col + col* CARD_WIDTH + GameController.OFFSET_BETWEEN + CARD_WIDTH;
             if (e.getX() >= leftBorder && e.getX() <= rightBorder) {
                 logicX = col;
                 break;
@@ -30,8 +33,8 @@ public class MouseManager implements MouseListener {
             return;
         }
         for (int row = 0; row <  GameView.ROWS; row++) {
-            int topBorder = GameEngine.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameEngine.OFFSET_BETWEEN;
-            int bottomBorder =  GameEngine.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameEngine.OFFSET_BETWEEN + CARD_HEIGHT;
+            int topBorder = GameController.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameController.OFFSET_BETWEEN;
+            int bottomBorder =  GameController.OFFSET_BETWEEN * row + row* CARD_HEIGHT + GameController.OFFSET_BETWEEN + CARD_HEIGHT;
             if (e.getY() >= topBorder && e.getY() <= bottomBorder) {
                 logicY = row;
                 break;
@@ -44,7 +47,7 @@ public class MouseManager implements MouseListener {
 
 
 
-        gameEngine.click(logicX,logicY);    // NullPointerException występuje, gdy wywołamy metodę na zmiennej, w której jest nulll.
+        gameController.click(logicX,logicY);    // NullPointerException występuje, gdy wywołamy metodę na zmiennej, w której jest nulll.
     }
 
     @Override
