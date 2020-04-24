@@ -1,5 +1,6 @@
 package view;
 
+import audio.MusicPlayer;
 import controller.Controller;
 import controller.DifficultPickerViewController;
 import controller.MenuViewController;
@@ -18,6 +19,7 @@ public class AppFactory {
     public void buildGame(DifficultLevel level) {
         GameView gameView = new GameView("Memory", level);
         Controller gameEngine = new GameController(this,gameView);
+
     }
 
     public void buildQuizView(QuizService quizService) {
@@ -30,4 +32,21 @@ public class AppFactory {
         DifficultPickerView difficultPickerView = new DifficultPickerView("Difficult Picker");
         DifficultPickerViewController difficultPickerViewController = new DifficultPickerViewController(this,difficultPickerView);
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,15 +9,13 @@ import java.awt.image.BufferedImage;
 
 public class ViewGraphicPanelQuiz extends ViewGraphicPanel {
     public ViewGraphicPanelQuiz() {
-        addPictureBackground();
+
+        super(SingletonPictures.getQuizBackground());
     }
-    private void addPictureBackground() {
-        BufferedImage pictureBackgroundImage = SingletonPictures.getPictureBackground();
-        PanelImage pictureBackground = new PanelImage(pictureBackgroundImage,50,50, Card.CARD_WIDTH*2,Card.CARD_HEIGHT*2);
-        images.add(pictureBackground);
-    }
+
     public void addCorrectPicture(Picture correctPicture){
-        PanelImage correctPictureImage = new PanelImage(correctPicture.getImage(),50,50,(int)(Card.CARD_WIDTH*1.6),(int)(Card.CARD_HEIGHT*1.6));
+        PanelImage correctPictureImage = new PanelImage(correctPicture.getImage(),120,64,(int)(Card.CARD_WIDTH*2.22),(int)(Card.CARD_HEIGHT*2.22));
         images.add(correctPictureImage);
     }
+
 }

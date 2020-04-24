@@ -36,6 +36,14 @@ public class Picture {
                 ", title='" + title + '\'';
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
     public BufferedImage getImage() {
         return image;
     }

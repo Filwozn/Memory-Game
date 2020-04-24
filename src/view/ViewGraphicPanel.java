@@ -1,8 +1,5 @@
 package view;
 
-import memoryGame.Card;
-import memoryGame.SingletonPictures;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -11,16 +8,16 @@ import java.util.List;
 
 public abstract class ViewGraphicPanel extends JPanel {
     protected List<PanelImage> images = new ArrayList<>();
+    private BufferedImage backgroundImage;
 
-    public ViewGraphicPanel() {
-       addBackgroundImage();
+    public ViewGraphicPanel(BufferedImage backgroundImage) {
+        this.backgroundImage = backgroundImage;
+        addBackgroundImage();
        setupComponent();
     }
 
 
-
-    private void addBackgroundImage() {
-        BufferedImage backgroundImage = SingletonPictures.getMenuBackground();
+    protected void addBackgroundImage() {
         PanelImage background = new PanelImage(backgroundImage,0,0, MenuView.WIDTH,MenuView.HEIGHT);
         images.add(background);
     }

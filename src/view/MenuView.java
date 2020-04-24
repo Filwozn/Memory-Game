@@ -1,8 +1,11 @@
 package view;
 
+import audio.MusicPlayer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class MenuView extends View {
     private JButton start;
@@ -11,11 +14,13 @@ public class MenuView extends View {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
 
+
     public MenuView(String title) throws HeadlessException {
         super(title, WIDTH, HEIGHT);
         setupFrame();
         setupComponents();
         setVisible(true);
+
     }
 
     public void setupFrame() {
@@ -51,4 +56,5 @@ public void addExitButtonAction(ActionListener actionListener){
     protected ViewGraphicPanel buildPanel() {
         return new ViewGraphicPanelStandard();
     }
+
 }

@@ -1,3 +1,5 @@
+Dlaczego nie pojawia się tekst odpowiedzi, dopasowac pozycje i wielkosc prycisków,
+dodać działanie przycisków,
 Quiz z nazwami obrazów i autorem,
 Wyświetlanie Autora i nawy obrazu,
 Opcja gry wieloosobowej,
@@ -5,6 +7,9 @@ Muzyczka opcjonalnie,
 dodawanie obrazu z poziomu menu(opcjonalnie)
 Pożegnanie,
 Reklama google.
+
+
+
 
 
 

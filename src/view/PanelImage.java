@@ -36,4 +36,15 @@ public class PanelImage {
     public int getHigh() {
         return high;
     }
+
+    @Override
+    public String toString() {
+        return "PanelImage{" +
+                "image=" + image +
+                ", x=" + x +
+                ", y=" + y +
+                ", width=" + width +
+                ", high=" + high +
+                '}';
+    }
 }

@@ -10,7 +10,15 @@ public class SingletonPictures {
     private static BufferedImage matchedPicture;
     private static BufferedImage pictureBackground;
     private static BufferedImage menuBackground;
+    private static BufferedImage quizBackground;
     private static Set<Picture> allPictures;
+
+    public static BufferedImage getQuizBackground() {
+        if(quizBackground == null){
+            quizBackground = PicturesLoader.getImage(new File("resources/QuizBackground.jpg"));
+        }
+    return quizBackground;
+    }
 
 
     public static BufferedImage getRevers() {
@@ -36,10 +44,11 @@ public class SingletonPictures {
 
     public static BufferedImage getMenuBackground() {
         if (menuBackground == null) {
-            menuBackground = PicturesLoader.getImage(new File("resources/Main_Menu.jpg"));
+            menuBackground = PicturesLoader.getImage(new File("resources/MenuBackground.jpg"));
         }
         return menuBackground;
     }
+
 
     public static Set<Picture> getAllPictures() {
         if (allPictures == null) {

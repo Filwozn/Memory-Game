@@ -5,6 +5,9 @@ import memoryGame.Picture;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class QuizView extends View {
     public static final int WIDTH = 800;
@@ -14,10 +17,8 @@ public class QuizView extends View {
     private JButton buttonC;
     private JButton buttonD;
     private JLabel question;
-    private JLabel answerA;
-    private JLabel answerB;
-    private JLabel answerC;
-    private JLabel answerD;
+    private List<JLabel> textAnswers;
+
     private ViewGraphicPanelQuiz quizPanel;
 
     public QuizView(String title) throws HeadlessException {
@@ -36,16 +37,14 @@ public class QuizView extends View {
     }
 
     public void setupComponents() {
-        question = new JLabel("Jaki to obraz i kto jest autorem?");
+        question = new JLabel("Jaką nazwę nosi ten obraz \n" +
+                " i kto go namalował?");
         question.setAlignmentX(Component.CENTER_ALIGNMENT);
-        answerA = new JLabel("A: ");
-        answerA.setAlignmentX(Component.CENTER_ALIGNMENT);
-        answerB = new JLabel("B: ");
-        answerB.setAlignmentX(Component.CENTER_ALIGNMENT);
-        answerC = new JLabel("C: ");
-        answerC.setAlignmentX(Component.CENTER_ALIGNMENT);
-        answerD = new JLabel("D: ");
-        answerD.setAlignmentX(Component.CENTER_ALIGNMENT);
+        Font currentFont = question.getFont();
+        Font newFont = currentFont.deriveFont(currentFont.getSize() * 2.1F);
+        question.setFont(newFont);
+        prepareAllAnswersLabels();
+
 
         buttonA = new JButton("A");
         buttonA.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -56,10 +55,6 @@ public class QuizView extends View {
         buttonD = new JButton("D");
         buttonD.setAlignmentX(Component.CENTER_ALIGNMENT);
         myPanel.add(question);
-        myPanel.add(answerA);
-        myPanel.add(answerB);
-        myPanel.add(answerC);
-        myPanel.add(answerD);
         myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
         myPanel.add(buttonA);
         myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
@@ -69,6 +64,17 @@ public class QuizView extends View {
         myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
         myPanel.add(buttonD);
         myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
+    }
+
+    private void prepareAllAnswersLabels() {
+        textAnswers = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            JLabel answer = new JLabel(String.valueOf("ABCD".charAt(i)));
+            answer.setAlignmentX(Component.CENTER_ALIGNMENT);
+            textAnswers.add(answer);
+            myPanel.add(answer);
+        }
     }
 
     public void addButtonAAction(ActionListener actionListener) {
@@ -87,22 +93,12 @@ public class QuizView extends View {
         buttonC.addActionListener(actionListener);
     }
 
-    public void addAnswerA(String answer) {
-        answerA.setText(answer);
+    public void addAllAnswers(List<String> answers) {
+        for (int i = 0; i < answers.size(); i++) {
+            textAnswers.get(i).setText(answers.get(i));
+        }
     }
-
-    public void addAnswerB(String answer) {
-        answerA.setText(answer);
-    }
-
-    public void addAnswerC(String answer) {
-        answerA.setText(answer);
-    }
-
-    public void addAnswerD(String answer) {
-        answerA.setText(answer);
-    }
-    public void setCorrectPicture(Picture correctPicture){
+    public void setCorrectPicture(Picture correctPicture) {
         quizPanel.addCorrectPicture(correctPicture);
     }
 

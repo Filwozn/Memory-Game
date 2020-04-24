@@ -15,6 +15,7 @@ public class QuizViewController extends Controller {
         super(appFactory);
         this.quizService = quizService;
         quizView.setCorrectPicture(quizService.getCorrectAnswer());
+        setupAnswers();
     }
 
     public void setupButtonsAction() {
@@ -42,6 +43,9 @@ public class QuizViewController extends Controller {
                 buttonDAction();
             }
         });
+    }
+    public void setupAnswers(){
+        quizView.addAllAnswers(quizService.getAllAnswersStrings());
     }
 
     public void buttonAAction() {

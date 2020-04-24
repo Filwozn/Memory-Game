@@ -33,4 +33,10 @@ public class QuizService {
     public List<Picture> getAllAnswers() {
         return allAnswers;
     }
+    public List<String> getAllAnswersStrings(){
+        List<String> answersStringsList = new ArrayList<>();
+        for (Picture picture : allAnswers) {
+            answersStringsList.add(picture.getAuthor() + " - " + picture.getTitle());
+        }return  answersStringsList;
+    }
 }
