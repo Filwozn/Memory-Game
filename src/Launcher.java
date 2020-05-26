@@ -1,5 +1,5 @@
-import view.ViewFactory;
-import view.ViewType;
+import audio.MusicPlayer;
+import view.AppFactory;
 
 import java.awt.*;
 
@@ -9,8 +9,10 @@ public class Launcher {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                ViewFactory viewFactory = new ViewFactory();
-                viewFactory.buildView(ViewType.MENU);
+
+                AppFactory appFactory = new AppFactory();
+                appFactory.buildMenu();
+
             }
         });
 

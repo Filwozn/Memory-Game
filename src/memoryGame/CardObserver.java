@@ -4,5 +4,6 @@ package memoryGame;
 public interface CardObserver {
 
      void cardStateChanged();
+     void triggerQuiz(Picture matched);
 
 }

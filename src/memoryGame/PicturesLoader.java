@@ -9,7 +9,7 @@ import java.util.*;
 public class PicturesLoader {
     private static final String PICTURES_FOLDER = "resources/images";
 
-    public Set<Picture> loadPictures() {
+    public static Set<Picture> loadPictures() {
         Set<Picture> pictures = new HashSet<>();
         File folder = new File(PICTURES_FOLDER);
         File[] filePictures = folder.listFiles();
@@ -20,7 +20,7 @@ public class PicturesLoader {
         return pictures;
     }
 
-    private Picture loadPicture(File file) {
+    private static Picture loadPicture(File file) {
         BufferedImage image = getImage(file);
         String fileName = file.getName();
         String name = fileName.split(".jpg")[0];

@@ -1,5 +1,7 @@
 package memoryGame;
 
+import view.GameView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,7 @@ public class CardFactory {
     private List<Picture> cardPictures;
 
     public CardFactory() {
-        PicturesGenerator generator = new PicturesGenerator();
+        CardPicturesGenerator generator = new CardPicturesGenerator();
         cardPictures = generator.generateRandomPictures();
     }
 
@@ -26,6 +28,9 @@ public class CardFactory {
             cards.add(new Card(cardPictures.get(column + rowIndex *amount), column, rowIndex));
         }
         return cards;
+    }
 
+    public List<Picture> getCardPictures() {
+      return new ArrayList<>(cardPictures);
     }
 }

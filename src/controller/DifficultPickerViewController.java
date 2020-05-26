@@ -1,18 +1,17 @@
 package controller;
 
-import memoryGame.GameView;
+import memoryGame.DifficultLevel;
 import view.DifficultPickerView;
-import view.ViewFactory;
-import view.ViewType;
+import view.AppFactory;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DifficultPickerController extends Controller {
+public class DifficultPickerViewController extends Controller {
     private DifficultPickerView difficultPickerView;
 
-    public DifficultPickerController(ViewFactory viewFactory, DifficultPickerView difficultPickerView) {
-        super(viewFactory);
+    public DifficultPickerViewController(AppFactory appFactory, DifficultPickerView difficultPickerView) {
+        super(appFactory);
         this.difficultPickerView = difficultPickerView;
         setupButtonsAction();
     }
@@ -45,16 +44,18 @@ public class DifficultPickerController extends Controller {
     }
     public void easyAction(){
         difficultPickerView.dispose();
-        viewFactory.buildView(ViewType.GAME);
+        appFactory.buildGame(DifficultLevel.EASY);
     }
     public void mediumAction(){
-        System.out.println("medium");
+             difficultPickerView.dispose();
+        appFactory.buildGame(DifficultLevel.MEDIUM);
     }
     public void hardAction(){
-        System.out.println("Hard");
+        difficultPickerView.dispose();
+        appFactory.buildGame(DifficultLevel.HARD);
     }
     public void backAction(){
-        viewFactory.buildView(ViewType.MENU);
+        appFactory.buildMenu();
         difficultPickerView.dispose();
     }
 
