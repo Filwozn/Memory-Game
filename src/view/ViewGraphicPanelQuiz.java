@@ -5,12 +5,18 @@ import memoryGame.Picture;
 import memoryGame.SingletonPictures;
 
 
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 
 public class ViewGraphicPanelQuiz extends ViewGraphicPanel {
     public ViewGraphicPanelQuiz() {
 
         super(SingletonPictures.getQuizBackground());
+    }
+
+    @Override
+    public void setupComponent() {
+        setLayout(null);
     }
 
     public void addCorrectPicture(Picture correctPicture){

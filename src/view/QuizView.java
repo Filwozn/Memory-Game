@@ -9,15 +9,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class QuizView extends View {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
-    private JButton buttonA;
-    private JButton buttonB;
-    private JButton buttonC;
-    private JButton buttonD;
+    private static final int FIRST_BUTTON_Y = 60;
+    private static final int BUTTON_SPACE_Y = 40;
+    private static final int BUTTONS_X = 450;
+    private static final int LABEL_ANSWER_MOVE = 50;
     private JLabel question;
     private List<JLabel> textAnswers;
+    private List<JButton> buttons;
 
     private ViewGraphicPanelQuiz quizPanel;
 
@@ -29,75 +31,68 @@ public class QuizView extends View {
     }
 
     public void setupFrame() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
-    public void setupPictureBackground() {
-
-    }
 
     public void setupComponents() {
-        question = new JLabel("Jaką nazwę nosi ten obraz \n" +
-                " i kto go namalował?");
-        question.setAlignmentX(Component.CENTER_ALIGNMENT);
+        question = new JLabel("<html>Jaką nazwę nosi ten obraz i kto go namalował?</html>");
         Font currentFont = question.getFont();
-        Font newFont = currentFont.deriveFont(currentFont.getSize() * 2.1F);
+        Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.6F);
         question.setFont(newFont);
         prepareAllAnswersLabels();
-
-
-        buttonA = new JButton("A");
-        buttonA.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonB = new JButton("B");
-        buttonB.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonC = new JButton("C");
-        buttonC.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonD = new JButton("D");
-        buttonD.setAlignmentX(Component.CENTER_ALIGNMENT);
+        arrangeAllAnswersLabels();
+        prepareAllButtons();
+        arrangeAllButtons();
+        question.setBounds(440,5,340,50);
         myPanel.add(question);
-        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
-        myPanel.add(buttonA);
-        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
-        myPanel.add(buttonB);
-        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
-        myPanel.add(buttonC);
-        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
-        myPanel.add(buttonD);
-        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
     }
 
     private void prepareAllAnswersLabels() {
         textAnswers = new ArrayList<>();
-
         for (int i = 0; i < 4; i++) {
-            JLabel answer = new JLabel(String.valueOf("ABCD".charAt(i)));
-            answer.setAlignmentX(Component.CENTER_ALIGNMENT);
+            JLabel answer = new JLabel("");
             textAnswers.add(answer);
             myPanel.add(answer);
         }
     }
-
-    public void addButtonAAction(ActionListener actionListener) {
-        buttonA.addActionListener(actionListener);
+    private void arrangeAllAnswersLabels(){
+        for (int i = 0; i < textAnswers.size() ; i++) {
+            JLabel label = textAnswers.get(i);
+            Dimension preferredSize = label.getPreferredSize();
+            label.setBounds(BUTTONS_X+LABEL_ANSWER_MOVE, FIRST_BUTTON_Y + BUTTON_SPACE_Y*i,280,28);
+        }
     }
 
-    public void addButtonBAction(ActionListener actionListener) {
-        buttonB.addActionListener(actionListener);
+    private void prepareAllButtons() {
+        buttons = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            JButton button = new JButton(String.valueOf("ABCD".charAt(i)));
+            myPanel.add(button);
+            buttons.add(button);
+        }
     }
 
-    public void addButtonCAction(ActionListener actionListener) {
-        buttonC.addActionListener(actionListener);
+    private void arrangeAllButtons(){
+        for (int i = 0; i < buttons.size() ; i++) {
+            JButton button = buttons.get(i);
+            Dimension preferredSize = button.getPreferredSize();
+            button.setBounds(BUTTONS_X, FIRST_BUTTON_Y + BUTTON_SPACE_Y*i,preferredSize.width,preferredSize.height);
+        }
     }
 
-    public void addButtonDAction(ActionListener actionListener) {
-        buttonC.addActionListener(actionListener);
+    public void addButtonAction(ActionListener actionListener) {
+        for (JButton button : buttons) {
+            button.addActionListener(actionListener);
+        }
     }
 
     public void addAllAnswers(List<String> answers) {
         for (int i = 0; i < answers.size(); i++) {
-            textAnswers.get(i).setText(answers.get(i));
+            textAnswers.get(i).setText("<html>" + answers.get(i) + "</html>");
         }
     }
+
     public void setCorrectPicture(Picture correctPicture) {
         quizPanel.addCorrectPicture(correctPicture);
     }

@@ -19,12 +19,12 @@ public class MusicPlayer implements Runnable {
     }
 
     public MusicPlayer(String... files) {
-     /*   musicFiles = new ArrayList<String>();
+        musicFiles = new ArrayList<String>();
         for (String file : files) {
             musicFiles.add("resources/music/"+ file +"");
-
-        }*/
+        }
     }
+
     public void playSound(String fileName){
         try{
             File soundFile = new File(fileName);
@@ -34,7 +34,7 @@ public class MusicPlayer implements Runnable {
             Clip clip = (Clip) AudioSystem.getLine(info);
             clip.open(audioInputStream);
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(+10);
+            gainControl.setValue(+1);
             clip.start();
         }catch (Exception e){
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class MusicPlayer implements Runnable {
 
     @Override
     public void run() {
-        playSound("resources/music/Supermarket7.wav");
+        playSound("resources/music/Frédéric CHOPIN - Waltz in A minor.wav");
     }
 
 }

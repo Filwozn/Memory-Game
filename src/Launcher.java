@@ -12,10 +12,9 @@ public class Launcher {
 
                 AppFactory appFactory = new AppFactory();
                 appFactory.buildMenu();
-
             }
         });
-
+ 
     }
 
 }

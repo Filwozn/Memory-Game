@@ -107,5 +107,3 @@ public class GameLogic {
 }
 
 
-//todo - wyciagniete metody match - najlepiej przez engine zatriggerować pojawie się quizu,
-// przekazać wybrana karte i jakoś liste innych obrazków

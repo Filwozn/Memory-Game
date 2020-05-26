@@ -33,10 +33,26 @@ public class QuizService {
     public List<Picture> getAllAnswers() {
         return allAnswers;
     }
-    public List<String> getAllAnswersStrings(){
+
+    public List<String> getAllAnswersStrings() {
         List<String> answersStringsList = new ArrayList<>();
         for (Picture picture : allAnswers) {
-            answersStringsList.add(picture.getAuthor() + " - " + picture.getTitle());
-        }return  answersStringsList;
+            answersStringsList.add(getAnswerText(picture));
+        }
+        return answersStringsList;
+    }
+
+    private String getAnswerText(Picture picture) {
+        return picture.getAuthor() + " - " + picture.getTitle();
+    }
+
+    public boolean isAnswerCorrect(String letter) {
+        char letterChar = letter.charAt(0);
+        int index = letterChar - 'A';
+        Picture selectedPicture = allAnswers.get(index);
+        return selectedPicture.equals(correctAnswer);
+    }
+    public String getCorrectAnswerMessage(){
+        return getAnswerText(correctAnswer);
     }
 }
