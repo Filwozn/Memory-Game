@@ -35,13 +35,13 @@ public class DifficultPickerView extends View{
     }
 
     public void setupComponents(){
-        easy = new JButton("easy");
+        easy = new JButton("Easy");
         easy.setAlignmentX(Component.CENTER_ALIGNMENT);
         medium = new JButton(" Medium");
         medium.setAlignmentX(Component.CENTER_ALIGNMENT);
         hard = new JButton("Hard");
         hard.setAlignmentX(Component.CENTER_ALIGNMENT);
-        back = new JButton("back");
+        back = new JButton("Back");
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
         myPanel.add(easy);
