@@ -5,8 +5,8 @@ Java Swing game imitatating classic memory game with special twist of art painti
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
-* [Screenshots](#screenshots)
 * [Code examples](#code-examples)
+* [Screenshots](#screenshots)
 ## Technologies
 Java 11, Swing, Serialization API, Multithreading
 ## Setup
@@ -16,7 +16,6 @@ Full implemetation of Memory Game with 3 level of dificuty and mouse control.
 Each game is unique due to radmonize generating of suite from bank of 61 paintigs.
 Correct match twigger quiz in witch to score you have to quess who is author of picter and pictures name from 4 options.
 In background there is a classical music.
-## Screenshots
 ## Code examples
 Examples contains clear and decomposed code samples.
 ### Example 1
@@ -57,3 +56,7 @@ Loading pictures from file.
         return pictures;
     }
 ```
+## Screenshots
+![tekst alternatywny](screenshots/MamoryGameDificultPicker.png)
+![tekst alternatywny](screenshots/MemoryGameQuizscreen1.png)
+![tekst alternatywny](screenshots/MemoryGameScreen2.png)
