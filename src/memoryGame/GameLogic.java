@@ -19,10 +19,10 @@ public class GameLogic {
     //zlecam prace na osobnym watku, którego będę zatrzywał na 1 sekundę  aby user mogl zobaczyć kartę
     //gdybym robił to na głównym wątku zatrzymałbym całą aplikacje - równiez uaktualnie wygladu kart
     public void executeSelection(int x, int y) {
-        runOnOtherThreat(x, y);
+        selectOnOtherThreat(x, y);
     }
 
-    public void runOnOtherThreat(int x, int y) {
+    public void selectOnOtherThreat(int x, int y) {
         SwingWorker<Void, Void> worker = new SwingWorker<>() {
             @Override
             protected Void doInBackground() throws Exception {

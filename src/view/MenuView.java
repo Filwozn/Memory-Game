@@ -33,7 +33,7 @@ public class MenuView extends View {
         highScores.setAlignmentX(Component.CENTER_ALIGNMENT);
         exit = new JButton("Exit");
         exit.setAlignmentX(Component.CENTER_ALIGNMENT);
-        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
+        myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN*7)));
         myPanel.add(start);
         myPanel.add(Box.createRigidArea(new Dimension(0, MARGIN)));
         myPanel.add(highScores);
