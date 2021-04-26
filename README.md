@@ -1,6 +1,6 @@
 # Memory-Quiz-Game
 ## General Info
-Java Swing game imitatating classic memory game with special twist of art paintings on cards and quiz after every matches.
+Java Swing game imitating  classic memory game with special twist of art paintings on cards and quiz after every matches.
 ## Table of contents
 * [Technologies](#technologies)
 * [Setup](#setup)
